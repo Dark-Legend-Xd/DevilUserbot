@@ -49,7 +49,7 @@ async def _(event):
 async def _(d3vil):
     if d3vil.fwd_from:
         return
-    await edit_or_reply(d3vil, "**All The Language Codes Can Be Found** \n ⚡ [Here](https://telegra.ph/SfMæisér--𐌷𐌴ࠋࠋ𐌱𐍈𐌸-𐌾𐌰𐍀𐌾-06-04) ⚡", link_preview=False)
+    await edit_or_reply(d3vil, "**All The Language Codes Can Be Found** \n ⚡ [Here](https://telegra.ph/D3VIL-BOT-05-13) ⚡", link_preview=False)
 
 
 @bot.on(d3vil_cmd(pattern="voice (.*)"))
