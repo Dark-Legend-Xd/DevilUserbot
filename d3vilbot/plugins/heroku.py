@@ -28,11 +28,11 @@ async def restart(event):
             return await eor(
                 event, "`HEROKU_API_KEY` is wrong. Re-Check in config vars."
             )
-        await eor(event, f"**✓ʀᴇsᴛᴀʀᴛᴇᴅ ᴅʏɴᴏs** \n **𝚃𝚢𝚙𝚎** `{hl}ping` **𝚊𝚏𝚝𝚎𝚛 1 𝚖𝚒𝚗𝚞𝚝𝚎 𝚝𝚘 𝚌𝚑𝚎𝚌𝚔 𝚒𝚏 𝙸 𝚊𝚖 𝚠𝚘𝚛𝚔𝚒𝚗𝚐 !**")
+        await eor(event, f"✅ **Restarted Dynos** \n**Type** `{hl}ping` **after 1 minute to check if I am working !**")
         app = Heroku.apps()[HEROKU_APP_NAME]
         app.restart()
     else:
-        execl(executable, executable, "bash", "D3vilBot")
+        execl(executable, executable, "bash", "d3vilBot")
 
 
 @bot.on(d3vil_cmd(pattern="restart$"))
@@ -44,7 +44,7 @@ async def re(d3vil):
     if HEROKU_API_KEY:
         await restart(event)
     else:
-        await event.edit("Please Set Your `HEROKU_API_KEY` to restart ∂3víℓвσт")
+        await event.edit("Please Set Your `HEROKU_API_KEY` to restart 𝖣3𝗏ɪʟʙᴏᴛ")
 
 
 @bot.on(d3vil_cmd(pattern="shutdown$"))
@@ -52,7 +52,9 @@ async def re(d3vil):
 async def down(d3vil):
     if d3vil.fwd_from:
         return
-    await eor(d3vil, "**[ ! ]** Turning off 𝖣3𝗏𝗂𝗅𝖡𝗈𝗍 Dynos... Manually turn me on later ಠ_ಠ")
+    event = await eor(d3vil, "`Turing Off Heroku Dynos...`")
+    await asyncio.sleep(2)
+    await event.edit("**[ ⚠️ ]** \n**𝖣3𝗏ɪʟʙᴏᴛ Dynos is now turned off. Manually turn it on to start again.**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -79,7 +81,7 @@ async def variable(d3vil):
             variable = d3vil.pattern_match.group(2).split()[0]
             if variable in ("D3VILBOT_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
                 if Config.ABUSE == "ON":
-                    await bot.send_file(hell.chat_id, cjb, caption=cap)
+                    await bot.send_file(d3vil.chat_id, cjb, caption=cap)
                     await event.delete()
                     await bot.send_message(lg_id, f"#HEROKU_VAR \n\n`{heroku_var[variable]}`")
                     return
@@ -102,10 +104,10 @@ async def variable(d3vil):
             with open("configs.json", "r") as fp:
                 result = fp.read()
                 if len(result) >= 4096:
-                    await hell.client.send_file(
-                        hell.chat_id,
+                    await d3vil.client.send_file(
+                        d3vil.chat_id,
                         "configs.json",
-                        reply_to=hell.id,
+                        reply_to=d3vil.id,
                         caption="`Output too large, sending it as a file`",
                     )
                 else:
@@ -118,7 +120,7 @@ async def variable(d3vil):
             os.remove("configs.json")
             return
     elif exe == "set":
-        event = await eor(hell, "Setting Heroku Variable...")
+        event = await eor(d3vil, "Setting Heroku Variable...")
         variable = d3vil.pattern_match.group(2)
         if not variable:
             return await event.edit(f"`{hl}set var <Var Name> <Value>`")
@@ -203,15 +205,15 @@ async def dyno_usage(d3vil):
     await asyncio.sleep(1.5)
 
     return await event.edit(
-        "✯ **𝙳𝚈𝙽𝙾 𝚄𝚂𝙰𝙶𝙴** ✯:\n\n"
-        f" ➪ __𝙳𝚈𝙽𝙾 𝚄𝚂𝙰𝙶𝙴 𝙵𝙾𝚁__ • **{Config.HEROKU_APP_NAME}** • :\n"
-        f"     ✩  `{AppHours}`**h**  `{AppMinutes}`**m**  "
+        "⚡ **Dyno Usage** ⚡:\n\n"
+        f" ➠ __Dyno usage for__ • **{Config.HEROKU_APP_NAME}** • :\n"
+        f"     ★  `{AppHours}`**h**  `{AppMinutes}`**m**  "
         f"**|**  `{AppPercentage}`**%**"
         "\n\n"
-        " ➪ __𝙳𝚈𝙽𝙾 𝙷𝙾𝚄𝚁𝚂 𝚁𝙴𝙼𝙰𝙸𝙽𝙸𝙽𝙶 𝚃𝙷𝙸𝚂 𝙼𝙾𝙽𝚃𝙷__ :\n"
-        f"     ☆  `{hours}`**𝙷**  `{minutes}`**𝙼**  "
+        " ➠ __Dyno hours remaining this month__ :\n"
+        f"     ★  `{hours}`**h**  `{minutes}`**m**  "
         f"**|**  `{percentage}`**%**"
-        f"\n\n**𝙼𝙰𝚂𝚃𝙴𝚁 ➪ :** {d3vil_mention}"
+        f"\n\n**Owner :** {d3vil_mention}"
     )
 
 
@@ -225,37 +227,10 @@ async def _(dyno):
         app = Heroku.app(HEROKU_APP_NAME)
     except BaseException:
         return await dyno.reply(f"Make Sure Your Heroku AppName & API Key are filled correct. Visit {d3vil_grp} for help.", link_preview=False)
-    event = await eor(dyno, "Downloading Logs...")
-    with open("d3vilbot-logs.txt", "w") as log:
-        log.write(app.get_log())
-    await bot.send_file(
-        dyno.chat_id,
-        "d3vilbot-logs.txt",
-        reply_to=dyno.id,
-        caption=f"**✔︎ 𝙷𝙴𝚁𝙾𝙺𝚄 𝙻𝙾𝙶𝚂 𝙾𝙵  💯 𝙻𝙸𝙽𝙴𝚂. 🗒️**\n\n **𝙼𝙰𝚂𝚃𝙴𝚁 ➪**  {d3vil_mention}"
-    )
-    await event.edit("Heroku Logs..")
-    await asyncio.sleep(5)
-    await event.delete()
-    return os.remove("d3vilbot-logs.txt")
+   # event = await eor(dyno, "Downloading Logs...")
+    d3vil_data = app.get_log()
+    await eor(dyno, d3vil_data, deflink=True, linktext=f"**🗒️ Heroku Logs of 💯 lines. 🗒️**\n\n🌟 **Bot Of :**  {d3vil_mention}\n\n🚀** Pasted**  ")
     
-  # d3vil_data = app.get_log()
-  # await eor(
-  #     dyno, d3vil_data, deflink=True, linktext=f"**✔︎ 𝙷𝙴𝚁𝙾𝙺𝚄 𝙻𝙾𝙶𝚂 𝙾𝙵 💯 𝙻𝙸𝙽𝙴𝚂. 🗒️**\n\n **𝙼𝙰𝚂𝚃𝙴𝚁 ➪**  {d3vil_mention}\n\n🚀** 𝙿𝙰𝚂𝚃𝙴𝙳**  "
-  # )
-"""
-    key = (
-        requests.post("https://nekobin.com/api/documents", json={"content": d3vil_data})
-        .json()
-        .get("result")
-        .get("key")
-    )
-    d3vil_url = f"https://nekobin.com/{key}"
-    url_raw = f"https://nekobin.com/raw/{key}"
-    foutput = f"**✔︎ 𝙷𝙴𝚁𝙾𝙺𝚄 𝙻𝙾𝙶𝚂 𝙾𝙵 💯 𝙻𝙸𝙽𝙴𝚂. 🗒️** \n\n [Nekobin]({d3vil_url}) & [Raw]({url_raw}) \n\n **𝙼𝙰𝚂𝚃𝙴𝚁 ➪**  {d3vil_mention}"
-"""
-    
-
 
 def prettyjson(obj, indent=2, maxlinelength=80):
     """Renders JSON content with indentation and line splits/concatenations to fit maxlinelength.
