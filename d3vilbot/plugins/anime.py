@@ -1,163 +1,163 @@
 import json
 import re
 import requests
+
+from telethon.errors.rpcerrorlist import ChatSendMediaForbiddenError
+
 from . import *
 
-async def callAPI(search_str):
-    query = """
-    query ($id: Int,$search: String) { 
-      Media (id: $id, type: ANIME,search: $search) { 
-        id
-        title {
-          romaji
-          english
-        }
-        description (asHtml: false)
-        startDate{
-            year
-          }
-          episodes
-          chapters
-          volumes
-          season
-          type
-          format
-          status
-          duration
-          averageScore
-          genres
-          bannerImage
-      }
-    }
-    """
-    variables = {"search": search_str}
-    url = "https://graphql.anilist.co"
-    response = requests.post(url, json={"query": query, "variables": variables})
-    return response.text
+
+@bot.on(d3vil_cmd(pattern="anime ?(.*)"))
+@bot.on(sudo_cmd(pattern="anime ?(.*)", allow_sudo=True))
+async def _(event):
+    query = event.text[7:]
+    if query == "":
+        return await eor(event, "Please give anime name to search on Anilist.")
+    d3vil = await eor(event, f"__Searching for__ `{query}` __on Anilist.__")
+    qdb = rand_key()
+    ANIME_DB[qdb] = query
+    result = await get_anilist(qdb, 1)
+    if len(result) == 1:
+        return await d3vil.edit(result[0])
+    pic, msg = result[0], result[1][0]
+    try:
+        await event.client.send_file(event.chat_id, file=pic, caption=msg, force_document=False)
+        await d3vil.delete()
+    except ChatSendMediaForbiddenError:
+        await d3vil.edit(msg)
+    if os.path.exists(pic):
+        os.remove(pic)
 
 
-async def formatJSON(outData):
-    msg = ""
-    jsonData = json.loads(outData)
-    res = list(jsonData.keys())
-    if "errors" in res:
-        msg += f"**Error** : `{jsonData['errors'][0]['message']}`"
-        return msg
-    else:
-        jsonData = jsonData["data"]["Media"]
-        if "bannerImage" in jsonData.keys():
-            msg += f"[〽️]({jsonData['bannerImage']})"
-        else:
-            msg += "〽️"
-        title = jsonData["title"]["romaji"]
-        link = f"https://anilist.co/anime/{jsonData['id']}"
-        msg += f"[{title}]({link})"
-        msg += f"\n\n**Type** : {jsonData['format']}"
-        msg += f"\n**Genres** : "
-        for g in jsonData["genres"]:
-            msg += g + " "
-        msg += f"\n**Status** : {jsonData['status']}"
-        msg += f"\n**Episode** : {jsonData['episodes']}"
-        msg += f"\n**Year** : {jsonData['startDate']['year']}"
-        msg += f"\n**Score** : {jsonData['averageScore']}"
-        msg += f"\n**Duration** : {jsonData['duration']} min\n\n"
-        # https://t.me/catuserbot_support/19496
-        cat = f"{jsonData['description']}"
-        msg += " __" + re.sub("<br>", "\n", cat) + "__"
-        return msg
+@bot.on(d3vil_cmd(pattern="manga ?(.*)"))
+@bot.on(sudo_cmd(pattern="manga ?(.*)", allow_sudo=True))
+async def _(event):
+    query = event.text[7:]
+    if query == "":
+        await eor(event, "Please give manga name to search..")
+    d3vil = await eor(event, f"__Searching for__ `{query}` ...")
+    qdb = rand_key()
+    MANGA_DB[qdb] = query
+    result = await get_manga(qdb, 1)
+    if len(result) == 1:
+        return await d3vil.edit(result[0])
+    pic, finals_ = result[0], result[1][0]
+    try:
+        await event.client.send_file(event.chat_id, file=pic, caption=finals_)
+        await d3vil.delete()
+    except ChatSendMediaForbiddenError:
+        await d3vil.edit(finals_)
+    if os.path.exists(pic):
+        os.remove(pic)
+    
+
+@bot.on(d3vil_cmd(pattern="character ?(.*)"))
+@bot.on(sudo_cmd(pattern="character ?(.*)", allow_sudo=True))
+async def _(event):
+    query = event.text[11:]
+    if query == "":
+        return await eor(event, "Give character name to get details.")
+    d3vil = await eor(event, f"__Searching for__ `{query}`")
+    qdb = rand_key()
+    CHARC_DB[qdb]=query
+    result = await get_character(qdb, 1)
+    if len(result) == 1:
+        return await d3vil.edit(result[0])
+    img = result[0]
+    cap_text = result[1][0]
+    try:
+        await event.client.send_file(event.chat_id, file=img, caption=cap_text)
+        await d3vil.delete()
+    except ChatSendMediaForbiddenError:
+        await d3vil.delete(cap_text)
+    if os.path.exists(img):
+        os.remove(img)
 
 
-@bot.on(d3vil_cmd(pattern="anilist (.*)"))
-@bot.on(sudo_cmd(pattern="anilist (.*)", allow_sudo=True))
-async def anilist(event):
-    if event.fwd_from:
+@bot.on(d3vil_cmd(pattern="fillers ?(.*)"))
+@bot.on(sudo_cmd(pattern="fillers ?(.*)", allow_sudo=True))
+async def canon(event):
+    d3vil = event.text[9:]
+    if d3vil == "":
+        return await eor(event, "`Give anime name to search filler episodes.`")
+    nub = await eor(event, f"Searching Filler Episodes For `{d3vil}`")
+    d3vl_ = search_filler(d3vil)
+    if d3vl_ == {}:
+        return await nub.edit(f"No filler found for `{d3vil}`")
+    list_ = list(d3vl_.keys())
+    if len(list_) == 1:
+        result = parse_filler(d3vl_.get(list_[0]))
+        msg = ""
+        msg += f"<h2>Fillers for {list_[0]} :</h2>\n\n<b>Manga Canon Episodes :</b>\n"
+        msg += f'<code>{str(result.get("total_ep"))}</code>'
+        msg += "\n\n<b>Mixed/Canon fillers :</b>\n"
+        msg += f'<code>{str(result.get("mixed_ep"))}</code>'
+        msg += "\n\n<b>Fillers :</b>\n"
+        msg += f'<code>{str(result.get("filler_ep"))}</code>'
+        if result.get("ac_ep") is not None:
+            msg += "\n\n<b>Anime Canon episodes :</b>\n"
+            msg += f'<code>{str(result.get("ac_ep"))}</code>'
+        paste = await telegraph_paste(f"📃 Fillers List For “ {list_[0]} ”", msg)
+        await nub.edit(f"**📃 Filler Episode List For [“ {list_[0]} ”]({paste}) !!**")
         return
-    input_str = event.pattern_match.group(1)
-    event = await edit_or_reply(event, "Searching...")
-    result = await callAPI(input_str)
-    msg = await formatJSON(result)
-    await event.edit(msg, link_preview=True)
+    d3vilbot = f"**📃 Filler Episode Lists :** \n\n"
+    for i in list_:
+        result = parse_filler(d3vl_.get(i))
+        msg = ""
+        msg += f"<h2>Fillers for {i} :</h2>\n\n<b>Manga Canon Episodes :</b>\n"
+        msg += f'<code>{str(result.get("total_ep"))}</code>'
+        msg += "\n\n<b>Mixed/Canon fillers :</b>\n"
+        msg += f'<code>{str(result.get("mixed_ep"))}</code>'
+        msg += "\n\n<b>Fillers :</b>\n"
+        msg += f'<code>{str(result.get("filler_ep"))}</code>'
+        if result.get("ac_ep") is not None:
+            msg += "\n\n<b>Anime Canon episodes :</b>\n"
+            msg += f'<code>{str(result.get("ac_ep"))}</code>'
+        paste = await telegraph_paste(f"📃 Fillers List For “ {i} ”", msg)
+        d3vilbot += f"• [{i}]({paste})\n"
+    await nub.edit(d3vilbot)
 
 
-@bot.on(d3vil_cmd(pattern="anime(?: |$)(.*)"))
-@bot.on(sudo_cmd(pattern="anime(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vl_):
-    d3vil = d3vl_.pattern_match.group(1)
-    if not d3vil:
-        if d3vl_.is_reply:
-            (await d3vl_.get_reply_message()).message
-        else:
-            await eod(d3vl_, "Sir please give some query to search and download it for you..!"
-            )
-            return
-
-    troll = await bot.inline_query("AniFluidbot", f".anime {(deEmojify(d3vil))}")
-
-    await troll[0].click(
-        d3vl_.chat_id,
-        reply_to=d3vl_.reply_to_msg_id,
-        silent=True if d3vl_.is_reply else False,
-        hide_via=True,
-    )
-    await d3vl_.delete()
-    
-    
-@bot.on(d3vil_cmd(pattern="manga(?: |$)(.*)"))
-@bot.on(sudo_cmd(pattern="manga(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vl_):
-    d3vil = d3vl_.pattern_match.group(1)
-    if not d3vil:
-        if d3vl_.is_reply:
-            (await d3vl_.get_reply_message()).message
-        else:
-            await eod(d3vl_, "Sir please give some query to search and download it for you..!"
-            )
-            return
-
-    troll = await bot.inline_query("AniFluidbot", f".manga {(deEmojify(d3vil))}")
-
-    await troll[0].click(
-        d3vl_.chat_id,
-        reply_to=d3vl_.reply_to_msg_id,
-        silent=True if d3vl_.is_reply else False,
-        hide_via=True,
-    )
-    await d3vl_.delete()
-    
-
-@bot.on(d3vil_cmd(pattern="character(?: |$)(.*)"))
-@bot.on(sudo_cmd(pattern="character(?: |$)(.*)", allow_sudo=True))
-async def nope(d3vl_):
-    d3vil = d3vl_.pattern_match.group(1)
-    if not d3vil:
-        if d3vl_.is_reply:
-            (await d3vl_.get_reply_message()).message
-        else:
-            await eod(d3vl_, "Sir please give some query to search and download it for you..!"
-            )
-            return
-
-    troll = await bot.inline_query("AniFluidbot", f".character {(deEmojify(d3vil))}")
-
-    await troll[0].click(
-        d3vl_.chat_id,
-        reply_to=d3vl_.reply_to_msg_id,
-        silent=True if d3vl_.is_reply else False,
-        hide_via=True,
-    )
-    await d3vl_.delete()
+@bot.on(d3vil_cmd(pattern="airing ?(.*)"))
+@bot.on(sudo_cmd(pattern="airing ?(.*)", allow_sudo=True))
+async def _(event):
+    query = event.text[8:]
+    d3vil = await eor(event, f"__Searching airing details for__ `{query}`")
+    if query == "":
+        return await eod(d3vil, "Give anime name to seaech airing information.")
+    vars_ = {"search": query}
+    if query.isdigit():
+        vars_ = {"id": int(query), "asHtml": True}
+    result = await get_airing(vars_)
+    if len(result) == 1:
+        return await d3vil.edit(result[0])
+    coverImg, out = result[0]
+    try:
+        await event.client.send_file(event.chat_id, coverImg, caption=out, force_document=False)
+        await d3vil.delete()
+    except ChatSendMediaForbiddenError:
+        await d3vil.edit(out)
+    if os.path.exists(coverImg):
+        os.remove(coverImg)
 
 
-CmdHelp("anime").add_command(
-  "anime", "<anime name>", "Searches for the given anime and sends the details.", "anime violet evergarden"
+@bot.on(d3vil_cmd(pattern="aniquote$"))
+@bot.on(sudo_cmd(pattern="aniquote$", allow_sudo=True))
+async def quote(event):
+    d3vil = await eor(event, "(ﾉ◕ヮ◕)ﾉ*.✧")
+    q = requests.get("https://animechan.vercel.app/api/random").json()
+    await asyncio.sleep(1.5)
+    await d3vil.edit("`"+q["quote"]+"`\n\n—  **"+q["character"]+"** (From __"+q["anime"]+"__)") #dimag ka bhosda hogya bc yha pe (*﹏*;)
+
+
+Cmdd3vlp("anime").add_command(
+  "anime", "<anime name>", "Searches for the given anime and sends the details.", "anime Darling in the franxx"
 ).add_command(
   "manga", "<manga name>", "Searches for the given manga and sends the details.", "manga Jujutsu kaisen"
 ).add_command(
   "character", "<character name>", "Searches for the given anime character and sends the details.", "character Mai Sakurajima"
 ).add_command(
-  "anilist", "<anime name>", "Searches Details of the anime directly from anilist", "anilist attack on titan"
-).add_info(
-  "Anime Search"
-).add_warning(
-  "✅ Harmless Module."
+  "fillers", "<anime name>", "Searches for the filler episodes of given Anime.", "fillers Naruto"
+).add_command(
+  "aniquote", None, "Gives a random quote from Anime."
 ).add()
