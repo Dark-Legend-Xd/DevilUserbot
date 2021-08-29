@@ -2,6 +2,11 @@ import asyncio
 import functools
 import shlex
 from typing import Tuple
+from uuid import uuid4
+
+
+def rand_key():
+    return str(uuid4())[:8]
 
 
 async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
@@ -27,5 +32,3 @@ def run_sync(func, *args, **kwargs):
 def run_async(loop, coro):
     return asyncio.run_coroutine_threadsafe(coro, loop).result()
 
-
-# d3vilbot
