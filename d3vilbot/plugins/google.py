@@ -38,54 +38,6 @@ async def _(event):
     )
 
 
-@bot.on(d3vil_cmd(pattern="watch (.*)"))
-@bot.on(sudo_cmd(pattern="watch (.*)", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    query = event.pattern_match.group(1)
-    d3vil = await eor(event, "Finding Sites...")
-    streams = get_stream_data(query)
-    title = streams["title"]
-    thumb_link = streams["movie_thumb"]
-    release_year = streams["release_year"]
-    release_date = streams["release_date"]
-    scores = streams["score"]
-    try:
-        imdb_score = scores["imdb"]
-    except KeyError:
-        imdb_score = None
-
-    try:
-        tmdb_score = scores["tmdb"]
-    except KeyError:
-        tmdb_score = None
-
-    stream_providers = streams["providers"]
-    if release_date is None:
-        release_date = release_year
-
-    output_ = f"**Movie:**\n`{title}`\n**Release Date:**\n`{release_date}`"
-    if imdb_score:
-        output_ = output_ + f"\n**IMDB: **{imdb_score}"
-    if tmdb_score:
-        output_ = output_ + f"\n**TMDB: **{tmdb_score}"
-
-    output_ = output_ + "\n\n**Available on:**\n"
-    for provider, link in stream_providers.items():
-        if "sonyliv" in link:
-            link = link.replace(" ", "%20")
-        output_ += f"[{pretty(provider)}]({link})\n"
-
-    await bot.send_file(
-        event.chat_id,
-        caption=output_,
-        file=thumb_link,
-        force_document=False,
-        allow_cache=False,
-        silent=True,
-    )
-    await event.delete()
 
 
 @bot.on(d3vil_cmd(pattern="google (.*)", outgoing=True))
@@ -243,6 +195,4 @@ CmdHelp("google").add_command(
   "gps", "<place>", "Gives the location of the given place/city/state."
 ).add_command(
   "wikipedia", "<query>", "Searches for the query on Wikipedia."
-).add_command(
-  "watch", "<query>", "Searches for all the available sites for watching that movie or series."
 ).add()
