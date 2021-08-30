@@ -58,7 +58,7 @@ for name in files:
 # Extra Modules...
 # extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
 # if Config.EXTRA == "True":
-     try:
+#     try:
          os.system(f"git clone https://github.com/TEAM-D3VIL/D3VILADDONS")
      except BaseException:
          pass
