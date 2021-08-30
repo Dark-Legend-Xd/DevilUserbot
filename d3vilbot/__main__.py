@@ -56,8 +56,9 @@ for name in files:
         load_module(shortname.replace(".py", ""))
 
 # Extra Modules...
- extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
+# extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
 # if Config.EXTRA == "True":
+ extra_repo = "https://github.com/TEAM-D3VIL/D3VILADDONS"
      try:
          os.system(f"git clone {extra_repo}")
      except BaseException:
