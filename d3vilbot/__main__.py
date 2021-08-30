@@ -13,7 +13,6 @@ from d3vilbot.utils import load_module
 from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
 D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
-d3vil_mention = f"(tg://user?id={d3krish})"
 
 # let's get the bot ready
 async def d3vil_bot(bot_token):
@@ -88,7 +87,7 @@ async def d3vil_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 D3VIL_PIC,
-                caption=f"ʟɛɢɛռɖaʀʏ ᴀғ ᴛᴇᴀᴍ ᴅ3ᴠɪʟ\n\n𝐌𝐀𝐒𝐓𝐄𝐑 ➪ {d3vil_mention}\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [𝔡3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱](t.me/D3VIL_SUPPORT) for Updates & [𝔇3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱 𝔠𝔥𝔞𝔱](t.me/D3VIL_BOT_SUPPORT) 𝐟𝐨𝐫 𝐚𝐧𝐲 𝐪𝐮𝐞𝐫𝐲 𝐫𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝔡3𝔳𝔦𝔩𝔅𝔬𝔱",
+                caption=f"ʟɛɢɛռɖaʀʏ ᴀғ ᴛᴇᴀᴍ ᴅ3ᴠɪʟʙᴏᴛ\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [𝔡3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱](t.me/D3VIL_SUPPORT) for Updates & [𝔇3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱 𝔠𝔥𝔞𝔱](t.me/D3VIL_BOT_SUPPORT) 𝐟𝐨𝐫 𝐚𝐧𝐲 𝐪𝐮𝐞𝐫𝐲 𝐫𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝔡3𝔳𝔦𝔩𝔅𝔬𝔱",
             )
     except Exception as e:
         LOGS.info(str(e))
