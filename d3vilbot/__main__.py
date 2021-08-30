@@ -13,6 +13,7 @@ from d3vilbot.utils import load_module
 from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
 D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
+d3vil_mention = f"[{D3VIL_USER}](tg://user?id={d3krish})"
 
 # let's get the bot ready
 async def d3vil_bot(bot_token):
