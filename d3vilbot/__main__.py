@@ -58,9 +58,8 @@ for name in files:
 # Extra Modules...
 # extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
 # if Config.EXTRA == "True":
- extra_repo = "https://github.com/TEAM-D3VIL/D3VILADDONS"
      try:
-         os.system(f"git clone {extra_repo}")
+         os.system(f"git clone https://github.com/TEAM-D3VIL/D3VILADDONS")
      except BaseException:
          pass
      LOGS.info("Installing Extra Plugins")
