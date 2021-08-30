@@ -169,7 +169,7 @@ async def _(event):
     await event.delete()
 
 
-Cmdd3vlp("movies").add_command(
+CmdHelp("movies").add_command(
   "imdb", "<movie name>", "Searches for given movie on IMDb database and returns the details.", "imdb The Shawshank Redemption"
 ).add_command(
   "watch", "<movie name>", "Searches for all the available sites for watching that movie or series", "watch Godfather"
