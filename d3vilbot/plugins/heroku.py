@@ -79,7 +79,7 @@ async def variable(d3vil):
             variable = d3vil.pattern_match.group(2).split()[0]
             if variable in ("D3VILBOT_SESSION", "BOT_TOKEN", "HEROKU_API_KEY"):
                 if Config.ABUSE == "ON":
-                    await bot.send_file(hell.chat_id, cjb, caption=cap)
+                    await bot.send_file(d3vil.chat_id, cjb, caption=cap)
                     await event.delete()
                     await bot.send_message(lg_id, f"#HEROKU_VAR \n\n`{heroku_var[variable]}`")
                     return
@@ -102,10 +102,10 @@ async def variable(d3vil):
             with open("configs.json", "r") as fp:
                 result = fp.read()
                 if len(result) >= 4096:
-                    await hell.client.send_file(
-                        hell.chat_id,
+                    await d3vil.client.send_file(
+                        d3vil.chat_id,
                         "configs.json",
-                        reply_to=hell.id,
+                        reply_to=d3vil.id,
                         caption="`Output too large, sending it as a file`",
                     )
                 else:
@@ -118,7 +118,7 @@ async def variable(d3vil):
             os.remove("configs.json")
             return
     elif exe == "set":
-        event = await eor(hell, "Setting Heroku Variable...")
+        event = await eor(d3vil, "Setting Heroku Variable...")
         variable = d3vil.pattern_match.group(2)
         if not variable:
             return await event.edit(f"`{hl}set var <Var Name> <Value>`")
@@ -239,10 +239,10 @@ async def _(dyno):
     await event.delete()
     return os.remove("d3vilbot-logs.txt")
     
-   d3vil_data = app.get_log()
-   await eor(
-       dyno, d3vil_data, deflink=True, linktext=f"**✔︎ 𝙷𝙴𝚁𝙾𝙺𝚄 𝙻𝙾𝙶𝚂 𝙾𝙵 💯 𝙻𝙸𝙽𝙴𝚂. 🗒️**\n\n **𝙼𝙰𝚂𝚃𝙴𝚁 ➪**  {d3vil_mention}\n\n🚀** 𝙿𝙰𝚂𝚃𝙴𝙳**  "
-   )
+  # d3vil_data = app.get_log()
+  # await eor(
+  #     dyno, d3vil_data, deflink=True, linktext=f"**✔︎ 𝙷𝙴𝚁𝙾𝙺𝚄 𝙻𝙾𝙶𝚂 𝙾𝙵 💯 𝙻𝙸𝙽𝙴𝚂. 🗒️**\n\n **𝙼𝙰𝚂𝚃𝙴𝚁 ➪**  {d3vil_mention}\n\n🚀** 𝙿𝙰𝚂𝚃𝙴𝙳**  "
+  # )
 """
     key = (
         requests.post("https://nekobin.com/api/documents", json={"content": d3vil_data})
