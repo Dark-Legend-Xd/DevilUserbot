@@ -14,6 +14,9 @@ from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
 D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
 
+LOAD_USERBOT = os.environ.get("LOAD_USERBOT", True)
+LOAD_ASSISTANT = os.environ.get("LOAD_ASSISTANT", True)    
+
 # let's get the bot ready
 async def d3vil_bot(bot_token):
     try:
@@ -55,6 +58,17 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
+assistant = os.environ.get("ASSISTANT", None)
+async def assistants():
+    if assistant == "ON":
+        path = "d3vilbot/assistant/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
+                start_assistant(shortname.replace(".py", ""))
+ 
 # Extra Modules...
 # extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
 # if Config.EXTRA == "True":
