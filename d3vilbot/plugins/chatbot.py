@@ -3,7 +3,6 @@ from telethon import events
 from telethon.utils import get_display_name
 
 from d3vilbot import bot
-from d3vilbot.cmdhelp import CmdHelp
 from d3vilbot.utils import edit_or_reply, admin_cmd, eor, delete_d3vil
 
 from d3vilbot.helpers.events import get_user_from_event
