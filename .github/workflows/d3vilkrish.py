@@ -1,3 +1,3 @@
-git fetch origin
-git checkout -b d3krish origin/d3krish
-git merge master
+git checkout master
+git merge --no-ff d3krish
+git push origin master
