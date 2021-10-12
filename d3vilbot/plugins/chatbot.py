@@ -191,6 +191,4 @@ CmdHelp("chatbot").add_command(
    'listai', None, 'list ai'
 ).add_command(
     'delai', None, 'delte ai'
-).add_type(
-    "Official"
 ).add()
