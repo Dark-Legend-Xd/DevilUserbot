@@ -34,6 +34,7 @@ class Config(object):
     EMOJI_IN_HELP = os.environ.get("EMOJI_IN_HELP", "✰")
     EXCLUDE_WAIFU = os.environ.get("EXCLUDE_WAIFU", None)
     EXTRA = os.environ.get("EXTRA", None)
+    ASSISTANT = os.environ.get("ASSISTANT", None) 
     EXTRA_REPO = os.environ.get("EXTRA_REPO", None)
     FBAN_LOG_GROUP = os.environ.get("FBAN_LOG_GROUP", None)
     if FBAN_LOG_GROUP:
