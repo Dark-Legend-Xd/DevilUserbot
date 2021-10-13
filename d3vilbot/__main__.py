@@ -68,7 +68,10 @@ async def assistants():
                 path1 = Path(f.name)
                 shortname = path1.stem
                 start_assistant(shortname.replace(".py", ""))
- 
+
+
+bot.loop.run_until_complete(assistants())
+
 # Extra Modules...
 # extra_repo = Config.EXTRA_REPO or "https://github.com/TEAM-D3VIL/D3VILADDONS"
 # if Config.EXTRA == "True":
