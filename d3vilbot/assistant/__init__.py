@@ -3,8 +3,8 @@ from telethon import Button, custom
 
 from d3vilbot import bot
 
-from d3vilbot import YOUR_NAME
-OWNER_NAME = YOUR_NAME
+from d3vilbot import *
+OWNER_NAME = "{d3vil_mention}"
 OWNER_ID = bot.uid
 
 
