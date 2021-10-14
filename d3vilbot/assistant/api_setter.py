@@ -17,7 +17,7 @@ from d3vilbot import *
 #from d3vilbot.cmdhelp import *
 from d3vilbot.utils import *
 from d3vilbot.config import Config
-from d3vilbot import YOUR_NAME
+YOUR_NAME = Config.YOUR_NAME
 D3VIL_row = Config.BUTTONS_IN_HELP
 D3VIL_emoji = Config.EMOJI_IN_HELP1
 
