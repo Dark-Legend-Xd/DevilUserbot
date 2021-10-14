@@ -8,7 +8,10 @@ from telethon.tl.types import (
     ChatBannedRights,
     MessageEntityMentionName,
 )
+
+
 from . import *
+
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
