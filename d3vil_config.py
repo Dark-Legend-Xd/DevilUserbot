@@ -35,7 +35,6 @@ class Config(object):
     EXCLUDE_WAIFU = os.environ.get("EXCLUDE_WAIFU", None)
     EXTRA = os.environ.get("EXTRA", None)
     ASSISTANT = os.environ.get("ASSISTANT", None) 
-    BOT_HANDLER = os.eviron.get("BOT_HANDLER",".")
     EXTRA_REPO = os.environ.get("EXTRA_REPO", None)
     FBAN_LOG_GROUP = os.environ.get("FBAN_LOG_GROUP", None)
     if FBAN_LOG_GROUP:
