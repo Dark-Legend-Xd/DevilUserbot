@@ -14,7 +14,7 @@ from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 
 from d3vilbot import *
-from d3vilbot.cmdhelp import *
+#from d3vilbot.cmdhelp import *
 from d3vilbot.utils import *
 from d3vilbot.Config import Config
 from d3vilbot import YOUR_NAME
