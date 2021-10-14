@@ -1,6 +1,6 @@
 from telethon import events
 from . import *
-from d3vilbot import YOUR_NAME
+#from d3vilbot import YOUR_NAME
 from d3vilbot import bot
 
 D3VIL_USER = bot.me.first_name
