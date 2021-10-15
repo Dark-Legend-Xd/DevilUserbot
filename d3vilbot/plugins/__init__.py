@@ -44,10 +44,13 @@ START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
 my_channel = Config.MY_CHANNEL or "D3VIL_SUPPORT"
 my_group = Config.MY_GROUP or "D3VIL_BOT_SUPPORT"
+my_assistant = Config.BOT_USERNAME
 if "@" in my_channel:
     my_channel = my_channel.replace("@", "")
 if "@" in my_group:
     my_group = my_group.replace("@", "")
+if "@" in my_assistant:
+    my_assistant = my_assistant.replace("@", "")
 
 chnl_link = "https://t.me/D3VIL_SUPPORT"
 d3vil_channel = f"[тнε ᗪ3vιℓ υρ∂αтεs]({chnl_link})"
