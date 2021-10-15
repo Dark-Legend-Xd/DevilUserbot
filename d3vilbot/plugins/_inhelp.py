@@ -20,6 +20,7 @@ from . import *
 d3vil_row = Config.BUTTONS_IN_HELP
 d3vil_emoji = Config.EMOJI_IN_HELP
 d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/ad8abbfbcb2f93f91b10f.jpg"
+help_pic = Config.HELP_PIC or "https://telegra.ph/file/a7756261cc1e637e834e8.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 
@@ -100,19 +101,36 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query == "d3vilbot_d3vlp":
+        if event.query.user_id == bot.uid and query == "hellbot_help":
             rev_text = query[::-1]
             veriler = button(0, sorted(CMD_HELP))
             apn = []
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            result = await builder.article(
-                f"Hey! Only use .help please",
-                text=f"**『{d3vil_mention}』**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
-                buttons=veriler[1],
-                link_preview=False,
-            )
+            help_msg = f"🔰 **『{d3vil_mention}』**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}"
+            if help_pic and help_pic.endswith((".jpg", ".png")):
+                result = builder.photo(
+                    help_pic,
+                    text=help_msg,
+                    buttons=veriler[1],
+                    link_preview=False,
+                )
+            elif help_pic:
+                result = builder.document(
+                    help_pic,
+                    text=help_msg,
+                    title="D3vilBot Alive",
+                    buttons=veriler[1],
+                    link_preview=False,
+                )
+            else:
+                result = builder.article(
+                    f"Hey! Only use .help please",
+                    text=help_msg,
+                    buttons=veriler[1],
+                    link_preview=False,
+                )
         elif event.query.user_id == bot.uid and query.startswith("fsub"):
             hunter = event.pattern_match.group(1)
             d3vil = hunter.split("+")
