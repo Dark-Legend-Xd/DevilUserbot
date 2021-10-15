@@ -20,7 +20,6 @@ from . import *
 d3vil_row = Config.BUTTONS_IN_HELP
 d3vil_emoji = Config.EMOJI_IN_HELP
 d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/ad8abbfbcb2f93f91b10f.jpg"
-help_pic = Config.HELP_PIC or "https://telegra.ph/file/a7756261cc1e637e834e8.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 
@@ -101,36 +100,19 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query == "hellbot_help":
+        if event.query.user_id == bot.uid and query == "d3vilbot_d3vlp":
             rev_text = query[::-1]
             veriler = button(0, sorted(CMD_HELP))
             apn = []
             for x in CMD_LIST.values():
                 for y in x:
                     apn.append(y)
-            help_msg = f"🔰 **『{d3vil_mention}』**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}"
-            if help_pic and help_pic.endswith((".jpg", ".png")):
-                result = builder.photo(
-                    help_pic,
-                    text=help_msg,
-                    buttons=veriler[1],
-                    link_preview=False,
-                )
-            elif help_pic:
-                result = builder.document(
-                    help_pic,
-                    text=help_msg,
-                    title="D3vilBot Alive",
-                    buttons=veriler[1],
-                    link_preview=False,
-                )
-            else:
-                result = builder.article(
-                    f"Hey! Only use .help please",
-                    text=help_msg,
-                    buttons=veriler[1],
-                    link_preview=False,
-                )
+            result = await builder.article(
+                f"Hey! Only use .help please",
+                text=f"**『{d3vil_mention}』**\n\n📜 __No.of Plugins__ : `{len(CMD_HELP)}` \n🗂️ __Commands__ : `{len(apn)}`\n🗒️ __Page__ : 1/{veriler[0]}",
+                buttons=veriler[1],
+                link_preview=False,
+            )
         elif event.query.user_id == bot.uid and query.startswith("fsub"):
             hunter = event.pattern_match.group(1)
             d3vil = hunter.split("+")
@@ -200,7 +182,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"**[⚜️ 𝙻𝙴𝙶𝙴𝙽𝙳𝙰𝚁𝚈 𝙰𝙵 𝚃𝙴𝙰𝙼 𝙳3𝚅𝙸𝙻 ⚜️](https://t.me/D3VIL_SUPPORT)**",
+                text=f"**[⚜️ 𝙻𝙴𝙶𝙴𝙽𝙳𝙰𝚁𝚈 𝙰𝙵 𝚃𝙴𝙰𝙼 𝙳3𝚅𝙸𝙻 ⚜️](https://t.me/D3VIL_BOT_OFFICIAL)**",
                 buttons=[
                     [Button.url("📑 𝖱𝖾𝗉𝗈 📑", "https://github.com/TEAM-D3VIL/D3vilBot")],
                     [Button.url("🚀 𝖣𝖾𝗉𝗅𝗈𝗒 🚀", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTEAM-D3VIL%2FD3vilBot&template=https%3A%2F%2Fgithub.com%2FTEAM-D3VIL%2FD3vilBot")],
@@ -219,11 +201,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
 
         else:
             result = builder.article(
-                "@D3VIL_SUPPORT",
+                "D3VIL_BOT_OFFICIAL",
                 text="""**𝖧𝖾𝗒! 𝖳𝗁𝗂𝗌 𝗂𝗌 [✘•𝙳3𝚅𝙸𝙻𝙱𝙾𝚃•✘](https://t.me/D3VIL_OP_BOLTE)  \𝗇𝖸𝗈𝗎 𝖼𝖺𝗇 𝗄𝗇𝗈𝗐 𝗆𝗈𝗋𝖾 𝖺𝖻𝗈𝗎𝗍 𝗆𝖾 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝗅𝗂𝗇𝗄𝗌 𝗀𝗂𝗏𝖾𝗇 𝖻𝖾𝗅𝗈𝗐 👇**""",
                 buttons=[
                     [
-                        custom.Button.url("🔥 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 🔥", "https://t.me/D3VIL_SUPPORT"),
+                        custom.Button.url("🔥 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 🔥", "https://t.me/D3VIL_BOT_OFFICIAL"),
                         custom.Button.url(
                             "⚡ 𝙶𝚁𝙾𝚄𝙿 ⚡", "https://t.me/D3VIL_BOT_SUPPORT"
                         ),
