@@ -18,7 +18,7 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 from . import *
 
 d3vil_row = Config.BUTTONS_IN_HELP
-d3vil_emoji = Config.EMOJI_IN_HELP
+d3vil_emoji = Config.EMOJI_IN_HELP 
 d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/ad8abbfbcb2f93f91b10f.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
@@ -260,7 +260,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"𝖠𝗁𝗁!! 𝖸𝗈𝗎 𝗁𝖾𝗋𝖾 𝗍𝗈 𝖽𝗈 chat!!\𝗇𝖯𝗅𝖾𝖺𝗌𝖾 𝗐𝖺𝗂𝗍 𝖿𝗈𝗋 {d3vil_mention} 𝗍𝗈 𝖼𝗈𝗆𝖾. 𝖳𝗂𝗅𝗅 𝗍𝗁𝖾𝗇 𝗄𝖾𝖾𝗉 𝗉𝖺𝗍𝗂𝖾𝗇𝖼𝖾 𝖺𝗇𝖽 𝖽𝗈𝗇'𝗍 𝗌𝗉𝖺𝗆."
+                f"𝖠𝗁𝗁!! 𝖸𝗈𝗎 𝗁𝖾𝗋𝖾 𝗍𝗈 𝖽𝗈 chat!!\n 𝖯𝗅𝖾𝖺𝗌𝖾 𝗐𝖺𝗂𝗍 𝖿𝗈𝗋 {d3vil_mention} 𝗍𝗈 𝖼𝗈𝗆𝖾. 𝖳𝗂𝗅𝗅 𝗍𝗁𝖾𝗇 𝗄𝖾𝖾𝗉 𝗉𝖺𝗍𝗂𝖾𝗇𝖼𝖾 𝖺𝗇𝖽 𝖽𝗈𝗇'𝗍 𝗌𝗉𝖺𝗆.\n 𝖨𝖿 𝗒𝗈𝗎 𝗁𝖺𝗏𝖾 𝗎𝗋𝗀𝖾𝗇𝗍 𝗍𝗈 𝗍𝖺𝗅𝗄 𝗐𝗂𝗍𝗁 𝗆𝗒 𝗆𝖺𝗌𝗍𝖾𝗋 𝗍𝗁𝖾𝗇 𝗒𝗈𝗎 𝗌𝖾𝗇𝖽 𝗒𝗈𝗎𝗋 𝗆𝖾𝗌𝗌𝖺𝗀𝖾 𝗍𝗈 𝗁𝗂𝗌 [➪ 𝐀𝐒𝐒𝐈𝐒𝐓𝐀𝐍𝐓•]({my_assistant}) 𝗁𝖾 𝗐𝗂𝗅𝗅 𝗋𝖾𝗉𝗅𝗒 𝗒𝗈𝗎 𝗌𝗈𝗈𝗇."
             )
             target = await event.client(GetFullUserRequest(event.query.user_id))
             ok = event.query.user_id
@@ -278,7 +278,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"🥴 **𝖭𝗂𝗄𝖺𝗅 𝗆𝖺𝖽𝖾𝗋𝖼𝗁𝗈𝖽\n𝖯𝖾𝗁𝗅𝗂 𝖿𝗎𝗋𝗌𝖺𝗍 𝗆𝖾 𝗇𝗂𝗄𝖺𝗅**"
+                f"🥴 **𝖭𝗂𝗄𝖺𝗅 𝗆𝖺𝖽𝖾𝗋𝖼𝗁𝗈𝖽\n 𝖯𝖾𝗁𝗅𝗂 𝖿𝗎𝗋𝗌𝖺𝗍 𝗆𝖾 𝗇𝗂𝗄𝖺𝗅**"
             )
             await bot(functions.contacts.BlockRequest(event.query.user_id))
             target = await event.client(GetFullUserRequest(event.query.user_id))
