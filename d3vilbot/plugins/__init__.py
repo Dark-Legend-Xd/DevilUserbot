@@ -44,7 +44,7 @@ START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
 my_channel = Config.MY_CHANNEL or "D3VIL_BOT_OFFICIAL"
 my_group = Config.MY_GROUP or "D3VIL_BOT_SUPPORT"
-my_assistant = Config.BOT_USERNAME or "D3VIL_BOT_SUPPORT
+my_assistant = Config.BOT_USERNAME or "D3VIL_BOT_SUPPORT"
 if "@" in my_channel:
     my_channel = my_channel.replace("@", "")
 if "@" in my_group:
