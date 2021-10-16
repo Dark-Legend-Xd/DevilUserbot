@@ -56,6 +56,8 @@ chnl_link = "https://t.me/D3VIL_BOT_OFFICIAL"
 d3vil_channel = f"[тнε ᗪ3vιℓ υρ∂αтεs]({chnl_link})"
 grp_link = "https://t.me/D3VIL_BOT_SUPPORT"
 d3vil_grp = f"[тнε ᗪ3vιℓ cнαт]({grp_link})"
+assistantop = "https://t.me/{my_assistant}"
+d3vilassistant = f"[➪ 𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧]({assistantop})"
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user
   {title} : To get chat name in message
