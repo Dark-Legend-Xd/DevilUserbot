@@ -176,7 +176,6 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                     ],
                     [custom.Button.inline("📝 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 📝", data="req")],
                     [custom.Button.inline("𝖢𝗎𝗋𝗂𝗈𝗎𝗌 ❓", data="pmclick")],
-                    [custom.Button.inline("𝖠𝗌𝗌𝗂𝗌𝗍𝖺𝗇𝗍 👤", f"https://t.me/{my_asistant}")],
           ],
             )
 
