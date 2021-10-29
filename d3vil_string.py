@@ -15,7 +15,7 @@ if okvai == "y" or "yes":
     with TelegramClient(StringSession(), APP_ID, API_HASH) as client:
         print(client.session.save())
         client.send_message("me", client.session.save())
-        client.send_message("me", "Above is your #D3VILBOT_SESSION \nPaste this string in Heroku Var.\n\n[Team D3VIL](t.me/the_D3VIL_BOT_OFFICIAL)")
+        client.send_message("me", "Above is your #D3VILBOT_SESSION \nPaste this string in Heroku Var.\n\n[тєαм ∂єνιℓ](t.me/devilbot_chat)")
 
 else:
-    print("Your D3vil string session genreted successfully. Join for query D3VIL_BOT_OFFICIAL")
+    print("Your D3vil string session genreted successfully. Join for query devil_us3rb0t")
