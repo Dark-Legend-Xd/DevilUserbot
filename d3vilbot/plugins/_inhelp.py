@@ -19,7 +19,7 @@ from . import *
 
 d3vil_row = Config.BUTTONS_IN_HELP
 d3vil_emoji = Config.EMOJI_IN_HELP
-d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/e74b430f6153a998cec81.jpg"
+d3vil_pic = Config.PMPERMIT_PIC or "https://telegra.ph/file/2bf0c83da574c94f5af8c.jpg"
 cstm_pmp = Config.CUSTOM_PMPERMIT
 ALV_PIC = Config.ALIVE_PIC
 
