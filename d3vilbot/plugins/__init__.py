@@ -11,7 +11,7 @@ from telethon import version
 D3VIL_USER = bot.me.first_name
 d3krish = bot.uid
 d3vil_mention = f"[{D3VIL_USER}](tg://user?id={d3krish})"
-d3vil_logo = "./resources/Pics/d3vilkrish_logo.jpg"
+d3vil_logo = "./resources/Pics/photo_2021-10-29_18-59-47.jpg"
 cjb = "./resources/Pics/cjb.jpg"
 restlo = "./resources/Pics/rest.jpeg"
 shuru = "./resources/Pics/shuru.jpg"
@@ -19,7 +19,7 @@ hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
 d3vil_ver = __d3vil__
 tel_ver = version.__version__
-update_logo = "https://telegra.ph/file/252f9c8a46b29ee1bca1e.jpg"
+update_logo = "https://telegra.ph/file/2bf0c83da574c94f5af8c.jpg"
 
 async def get_user_id(ids):
     if str(ids).isdigit():
@@ -49,10 +49,10 @@ if "@" in my_channel:
 if "@" in my_group:
     my_group = my_group.replace("@", "")
 
-chnl_link = "https://t.me/D3VIL_BOT_OFFICIAL"
-d3vil_channel = f"[тнε ᗪ3vιℓ υρ∂αтεs]({chnl_link})"
-grp_link = "https://t.me/D3VIL_BOT_SUPPORT"
-d3vil_grp = f"[тнε ᗪ3vιℓ cнαт]({grp_link})"
+chnl_link = "https://t.me/Devil_Us3rB0t"
+d3vil_channel = f"[∂єνιℓ υѕєявσт]({chnl_link})"
+grp_link = "https://t.me/DevilBot_chat"
+d3vil_grp = f"[∂єνιℓвσт ¢нαт]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user
