@@ -9,22 +9,22 @@ from . import *
 
 #-------------------------------------------------------------------------------
 
-d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
-pm_caption = "  __**🔥🔥𝗗3𝗩𝗜𝗟 𝗕𝗢𝗧 𝗜𝗦 𝗔𝗟𝗜𝗩𝗘🔥🔥**__\n\n"
+d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/e74b430f6153a998cec81.jpg"
+pm_caption = "  __**🔥🔥∂єνιℓвσт ιѕ αℓινє🔥🔥**__\n\n"
 
 pm_caption += f"**━━━━━━━━━━━━━━━━━━━━**\n\n"
 pm_caption += (
     f"                 ↼𝗠𝗔𝗦𝗧𝗘𝗥⇀\n  **『 {d3vil_mention} 』**\n\n"
 )
 pm_caption += f"╔══════════════════╗\n"
-pm_caption += f"╠•➳➠ `𝖳𝖾𝗅𝖾𝗍𝗁𝗈𝗇:` `{tel_ver}` \n"
-pm_caption += f"╠•➳➠ `𝖵𝖾𝗋𝗌𝗂𝗈𝗇:` `{d3vil_ver}`\n"
-pm_caption += f"╠•➳➠ `𝖲𝗎𝖽𝗈:` `{is_sudo}`\n"
-pm_caption += f"╠•➳➠ `𝖢𝗁𝖺𝗇𝗇𝖾𝗅:` [𝙹𝗈𝗂𝗇](https://t.me/D3VIL_BOT_OFFICIAL)\n"
-pm_caption += f"╠•➳➠ `𝖢𝗋𝖾𝖺𝗍𝗈𝗋:` [𝙳3𝙺𝚁𝙸𝚂𝙷](https://t.me/D3_krish)\n"
-pm_caption += f"╠•➳➠ `𝖮𝗐𝗇𝖾𝗋:` [𝙳3𝚅𝙸𝙻𝙶𝚄𝙻𝚂𝙷𝙰𝙽](https://t.me/D3VILGULSHAN)\n"
+pm_caption += f"╠•➳➠ `тєℓєтнσи:` `{tel_ver}` \n"
+pm_caption += f"╠•➳➠ `νєяѕισи:` `{d3vil_ver}`\n"
+pm_caption += f"╠•➳➠ `ѕυ∂σ:` `{is_sudo}`\n"
+pm_caption += f"╠•➳➠ `¢нαииєℓ:` [𝙹𝗈𝗂𝗇](https://t.me/Devil_Us3rB0t)\n"
+pm_caption += f"╠•➳➠ `ѕυρρσят:` [∂єνιℓвσт ¢нαт](https://t.me/devilBot_chat)\n"
+pm_caption += f"╠•➳➠ `¢яєαтσя:` [𝙳3𝚅𝙸𝙻𝙶𝚄𝙻𝚂𝙷𝙰𝙽](https://t.me/pro_error_xd)\n"
 pm_caption += f"╚══════════════════╝\n"
-pm_caption += " [⚡REPO⚡](https://github.com/TEAM-D3VIL/D3vilBot) 🔹 [📜License📜](https://github.com/TEAM-D3VIL/D3vilBot/blob/main/LICENSE)"
+pm_caption += " [⚡REPO⚡](https://github.com/Dark-Legend-Xd/DevilBot) 🔹 [📜License📜](https://github.com/Dark-Legend-Xd/DevilBot/blob/main/LICENSE)"
 
 
 #-------------------------------------------------------------------------------
@@ -40,16 +40,16 @@ async def up(d3vil):
     await d3vil.delete()
 
 msg = f"""
-**⚡ 𝐃3𝐕𝐈𝐋𝐁𝐎𝐓 𝐈𝐒 𝐎𝐍𝐋𝐈𝐍𝐄 ⚡**
+**⚡ ∂єνιℓвσт ιѕ σиℓιиє ⚡**
 {Config.ALIVE_MSG}
 **🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
 **↼𝗠𝗔𝗦𝗧𝗘𝗥⇀   :**  **『{d3vil_mention}』**
 **╔══════════════════╗**
-**╠➳➠ 𝗧𝗲𝗹𝗲𝘁𝗵𝗼𝗻 :**  `{tel_ver}`
-**╠➳➠ 𝗗3𝗩𝗜𝗟𝗕𝗢𝗧  :**  **{d3vil_ver}**
-**╠➳➠ 𝗨𝗽𝘁𝗶𝗺𝗲   :**  `{uptime}`
-**╠➳➠ 𝗔𝗯𝘂𝘀𝗲    :**  **{abuse_m}**
-**╠➳➠ 𝗦𝘂𝗱𝗼      :**  **{is_sudo}**
+**╠➳➠ тєℓєтнσи :**  `{tel_ver}`
+**╠➳➠ ∂єνιℓвσт  :**  **{d3vil_ver}**
+**╠➳➠ υρтιмє   :**  `{uptime}`
+**╠➳➠ αвυѕє    :**  **{abuse_m}**
+**╠➳➠ ѕυ∂σ      :**  **{is_sudo}**
 **╚══════════════════╝
 """
 botname = Config.BOT_USERNAME
