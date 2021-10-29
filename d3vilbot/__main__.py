@@ -12,7 +12,7 @@ from d3vilbot.config import Config
 from d3vilbot.utils import load_module, start_assistant
 from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
-D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/5abfcff75e1930dcdfaf3.mp4"
+D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/e74b430f6153a998cec81.jpg"
 
 LOAD_USERBOT = os.environ.get("LOAD_USERBOT", True)
 LOAD_ASSISTANT = os.environ.get("LOAD_ASSISTANT", True)    
@@ -42,7 +42,7 @@ else:
             LOGS.info("Checking Completed. Proceeding to next step...")
             LOGS.info("༆𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶 𝚄𝚂𝙴𝚁𝙱𝙾𝚃༆")
             bot.loop.run_until_complete(d3vil_bot(Config.BOT_USERNAME))
-            LOGS.info("✵𝙳3𝚅𝙸𝙻𝙱𝙾𝚃 𝚂𝚃𝙰𝚁𝚃𝚄𝙿 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳✵")
+            LOGS.info("✵𝙳E𝚅𝙸𝙻𝙱𝙾𝚃 𝚂𝚃𝙰𝚁𝚃𝚄𝙿 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳✵")
         else:
             bot.start()
     except Exception as e:
@@ -93,7 +93,7 @@ LOGS.info("➪𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶 𝙱𝙾𝚃 𝙼𝙾𝙳𝙴")
 tbot.start()
 LOGS.info("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
 LOGS.info(
-    "𝖧𝖾𝖺𝖽 𝗍𝗈 @D3VIL_SUPPORT 𝖿𝗈𝗋 𝖴𝗉𝖺𝖽𝗍𝖾 𝖭𝖾𝗐. 𝖠𝗅𝗌𝗈 𝗃𝗈𝗂𝗇 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 to 𝗀𝖾𝗍 𝗎𝗉𝖽𝖺𝗍𝖾 𝗋𝖾𝗀𝖺𝗋𝖽𝗂𝗇𝗀 𝗍𝗈 𝖣3𝗏𝗂𝗅𝖡𝗈𝗍."
+    "𝖧𝖾𝖺𝖽 𝗍𝗈 @DevilBot_Chat 𝖿𝗈𝗋 𝖴𝗉𝖺𝖽𝗍𝖾 𝖭𝖾𝗐. 𝖠𝗅𝗌𝗈 𝗃𝗈𝗂𝗇 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 to 𝗀𝖾𝗍 𝗎𝗉𝖽𝖺𝗍𝖾 𝗋𝖾𝗀𝖺𝗋𝖽𝗂𝗇𝗀 𝗍𝗈 𝖣e𝗏𝗂𝗅𝖡𝗈𝗍."
 )
 LOGS.info("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
 
@@ -104,14 +104,14 @@ async def d3vil_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 D3VIL_PIC,
-                caption=f"ʟɛɢɛռɖaʀʏ ᴀғ ᴅ3ᴠɪʟʙᴏᴛ\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [𝔡3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱](t.me/D3VIL_SUPPORT) for Updates & [𝔇3𝔳𝔦𝔩𝔲𝔰𝔢𝔯𝔅𝔬𝔱 𝔠𝔥𝔞𝔱](t.me/D3VIL_BOT_SUPPORT) 𝐟𝐨𝐫 𝐚𝐧𝐲 𝐪𝐮𝐞𝐫𝐲 𝐫𝐞𝐠𝐚𝐫𝐝𝐢𝐧𝐠 𝔡3𝔳𝔦𝔩𝔅𝔬𝔱",
+                caption=f"ℓєgєи∂αяу αf ∂єνιℓвσт\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [∂єνιℓвσт](t.me/Devil_Us3rb0t) for Updates & [∂єνιℓвσт ¢нαт](t.me/DevilBot_chat) fσяє αиу qυєяу яєgαя∂ιиg ∂єνιℓвσт",
             )
     except Exception as e:
         LOGS.info(str(e))
 
 
     try:
-        await bot(JoinChannelRequest("@D3VIL_SUPORT"))
+        await bot(JoinChannelRequest("@Devil_Us3rb0t"))
     except BaseException:
         pass
 
