@@ -9,7 +9,7 @@ from . import *
 
 #-------------------------------------------------------------------------------
 
-d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/e74b430f6153a998cec81.jpg"
+d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/2bf0c83da574c94f5af8c.jpg"
 pm_caption = "  __**🔥🔥∂єνιℓвσт ιѕ αℓινє🔥🔥**__\n\n"
 
 pm_caption += f"**━━━━━━━━━━━━━━━━━━━━**\n\n"
@@ -22,7 +22,7 @@ pm_caption += f"╠•➳➠ `νєяѕισи:` `{d3vil_ver}`\n"
 pm_caption += f"╠•➳➠ `ѕυ∂σ:` `{is_sudo}`\n"
 pm_caption += f"╠•➳➠ `¢нαииєℓ:` [𝙹𝗈𝗂𝗇](https://t.me/Devil_Us3rB0t)\n"
 pm_caption += f"╠•➳➠ `ѕυρρσят:` [∂єνιℓвσт ¢нαт](https://t.me/devilBot_chat)\n"
-pm_caption += f"╠•➳➠ `¢яєαтσя:` [𝙳3𝚅𝙸𝙻𝙶𝚄𝙻𝚂𝙷𝙰𝙽](https://t.me/pro_error_xd)\n"
+pm_caption += f"╠•➳➠ `¢яєαтσя:` [¢яєαтσя](https://t.me/pro_error_xd)\n"
 pm_caption += f"╚══════════════════╝\n"
 pm_caption += " [⚡REPO⚡](https://github.com/Dark-Legend-Xd/DevilBot) 🔹 [📜License📜](https://github.com/Dark-Legend-Xd/DevilBot/blob/main/LICENSE)"
 
