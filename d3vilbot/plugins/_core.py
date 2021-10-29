@@ -51,7 +51,7 @@ async def send(event):
     message_id = event.message.id
     thumb = d3vil_logo
     input_str = event.pattern_match.group(1)
-    omk = f"**• ᴘʟᴜɢɪɴ ɴᴀᴍᴇ ☞** `{input_str}`\n**• ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ ☞** {d3vil_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ᴛᴇᴀᴍ ᴅ3ᴠɪʟ]({chnl_link})** ⚡"
+    omk = f"**• ᴘʟᴜɢɪɴ ɴᴀᴍᴇ ☞** `{input_str}`\n**• ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ ☞** {d3vil_mention}\n\n⚡ **[ℓєgєи∂αяу αf тєαм ∂єνιℓ]({chnl_link})** ⚡"
     the_plugin_file = "./d3vilbot/plugins/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
@@ -109,7 +109,7 @@ async def install(event):
                             a = "__Installing...__"
                             b = 1
                         await d3vil.edit(a)
-                    return await d3vil.edit(f"✔︎ **𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 𝚖𝚘𝚍𝚞𝚕𝚎** :- `{shortname}` \n✨ 𝙱𝚈 :- {d3vil_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ᴛᴇᴀᴍ ᴅ3ᴠɪʟ]({chnl_link})** ⚡", link_preview=False)
+                    return await d3vil.edit(f"✔︎ **𝙸𝚗𝚜𝚝𝚊𝚕𝚕𝚎𝚍 𝚖𝚘𝚍𝚞𝚕𝚎** :- `{shortname}` \n✨ 𝙱𝚈 :- {d3vil_mention}\n\n{string}\n\n        ⚡ **[ℓєgєи∂αяу αf тєαм ∂єνιℓ]({chnl_link})** ⚡", link_preview=False)
                 return await d3vil.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
