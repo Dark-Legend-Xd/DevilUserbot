@@ -27,7 +27,7 @@ async def start(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
-    starttext = f"Hello, {firstname} \n! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [『ᗪ3ʋɨʟɮօȶ』](https://t.me/D3VIL_BOT_OFFICIAL)"
+    starttext = f"Hello, {firstname} \n! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [『∂єνιℓвσт』](https://t.me/DEVIL_US3RB0T)"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
@@ -53,7 +53,7 @@ async def start(event):
             link_preview=False,
             buttons=[
                 [custom.Button.inline("『𝙳𝙴𝙿𝙻𝙾𝚈』", data="deploy")],
-                [Button.url("𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ❓", "https://t.me/D3VIL_BOT_SUPPORT")],
+                [Button.url("𝚂𝚄𝙿𝙿𝙾𝚁𝚃 ❓", "https://t.me/DEVILBOT_SUPPORT")],
            ],
        )
 
@@ -67,11 +67,11 @@ async def help(event):
     if event.query.user_id is not bot.uid:
         await tgbot.send_message(
             event.chat_id,
-            message="You Can Deploy 『ᗪ3ʋɨʟɮօȶ』 In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            message="You Can Deploy 『∂єνιℓвσт』 In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
-                [Button.url("Tutorial 📺", "https://youtu.be/L43V_fQdXcg")],
-                [Button.url("Need Help ❓", "https://t.me/D3VIL_BOT_SUPPORT")],
-                [Button.url("🔰 𝚁𝙴𝙿𝙾 ", "https://github.com/TEAM-D3VIL/D3vilBot")],
+                [Button.url("Tutorial 📺", "https://t.me/DEVILBOT_SUPPORT")],
+                [Button.url("Need Help ❓", "https://t.me/DEVILBOT_SUPPORT")],
+                [Button.url("🔰 𝚁𝙴𝙿𝙾 ", "https://t.me/DEVILBOT_SUPPORT")],
             ],
         )
 
