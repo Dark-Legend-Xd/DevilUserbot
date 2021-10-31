@@ -43,5 +43,5 @@ class Development(Config):
   # Custom Command Handler for sudo users.
   SUDO_HANDLER = "!"
 
-# end of required config
+# end of required config.
 
