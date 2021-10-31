@@ -9,7 +9,7 @@ from . import *
 
 #-------------------------------------------------------------------------------
 
-d3vil_pic = Config.ALIVE_PIC or "https://telegra.ph/file/2bf0c83da574c94f5af8c.jpg"
+d3vil_pic = Config.ALIVE_PIC or "https://te.legra.ph/file/3d3e0c14a462ac23f8477.jpg"
 pm_caption = "  __**🔥🔥∂єνιℓвσт ιѕ αℓινє🔥🔥**__\n\n"
 
 pm_caption += f"**━━━━━━━━━━━━━━━━━━━━**\n\n"
