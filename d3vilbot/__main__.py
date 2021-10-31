@@ -12,7 +12,7 @@ from d3vilbot.config import Config
 from d3vilbot.utils import load_module, start_assistant
 from d3vilbot.version import __d3vil__ as d3vilver
 hl = Config.HANDLER
-D3VIL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/e74b430f6153a998cec81.jpg"
+D3VIL_PIC = Config.ALIVE_PIC or "https://te.legra.ph/file/3d3e0c14a462ac23f8477.jpg"
 
 LOAD_USERBOT = os.environ.get("LOAD_USERBOT", True)
 LOAD_ASSISTANT = os.environ.get("LOAD_ASSISTANT", True)    
