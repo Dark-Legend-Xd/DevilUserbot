@@ -10,7 +10,7 @@ msg = f"""
 **⚡ ℓεgεη∂αяү αғ тεαм ∂3vιℓ ⚡**
 
   •        [⚜️ 𝐑𝐞𝐩𝐨 ⚜️](https://github.com/Dark-Legend-Xd/DevilBot)
-  •        [⚡ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ⚡](https://t.me/DEVILBOT_CHAT)
+  •        [⚡ 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 ⚡](https://t.me/DevilB0T_CHAT)
 
   •  ©️ {d3vil_channel} ™
 """
