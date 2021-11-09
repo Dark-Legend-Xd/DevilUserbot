@@ -93,7 +93,7 @@ LOGS.info("➪𝚂𝚃𝙰𝚁𝚃𝙸𝙽𝙶 𝙱𝙾𝚃 𝙼𝙾𝙳𝙴")
 tbot.start()
 LOGS.info("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
 LOGS.info(
-    "𝖧𝖾𝖺𝖽 𝗍𝗈 @DevilBot_Chat 𝖿𝗈𝗋 𝖴𝗉𝖺𝖽𝗍𝖾 𝖭𝖾𝗐. 𝖠𝗅𝗌𝗈 𝗃𝗈𝗂𝗇 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 to 𝗀𝖾𝗍 𝗎𝗉𝖽𝖺𝗍𝖾 𝗋𝖾𝗀𝖺𝗋𝖽𝗂𝗇𝗀 𝗍𝗈 𝖣e𝗏𝗂𝗅𝖡𝗈𝗍."
+    "𝖧𝖾𝖺𝖽 𝗍𝗈 @DevilB0T_CHAT 𝖿𝗈𝗋 𝖴𝗉𝖺𝖽𝗍𝖾 𝖭𝖾𝗐. 𝖠𝗅𝗌𝗈 𝗃𝗈𝗂𝗇 𝖼𝗁𝖺𝗇𝗇𝖾𝗅 to 𝗀𝖾𝗍 𝗎𝗉𝖽𝖺𝗍𝖾 𝗋𝖾𝗀𝖺𝗋𝖽𝗂𝗇𝗀 𝗍𝗈 𝖣e𝗏𝗂𝗅𝖡𝗈𝗍."
 )
 LOGS.info("➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖")
 
@@ -104,14 +104,14 @@ async def d3vil_is_on():
             await bot.send_file(
                 Config.LOGGER_ID,
                 D3VIL_PIC,
-                caption=f"ℓєgєи∂αяу αf ∂єνιℓвσт\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [∂єνιℓвσт](t.me/Devil_Us3rb0t) for Updates & [∂єνιℓвσт ¢нαт](t.me/DevilBot_chat) fσяє αиу qυєяу яєgαя∂ιиg ∂єνιℓвσт",
+                caption=f"ℓєgєи∂αяу αf ∂єνιℓвσт\n\n**𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ➪ {d3vilver}**\n\n𝐓𝐲𝐩𝐞 `{hl}ping` or `{hl}alive` 𝐭𝐨 𝐜𝐡𝐞𝐜𝐤! \n\nJoin [∂єνιℓвσт](t.me/DEVIL_US3RBOT) for Updates & [∂єνιℓвσт ¢нαт](t.me/DevilB0T_CHAT) fσяє αиу qυєяу яєgαя∂ιиg ∂єνιℓвσт",
             )
     except Exception as e:
         LOGS.info(str(e))
 
 
     try:
-        await bot(JoinChannelRequest("@Devil_Us3rb0t"))
+        await bot(JoinChannelRequest("@DEVIL_US3RBOT"))
     except BaseException:
         pass
 
