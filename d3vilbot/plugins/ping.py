@@ -28,14 +28,14 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     if PING_PIC:
-        d3vil_caption = f"__**〘 ♕ ᑭσɳց! ♕ 〙__**\n\n   ⚘ {ms}\n   ⚘ __**𝙼𝚢**__ __**𝙼𝚊𝚜𝚝𝚎𝚛**__⟿{d3vil_mention}"
+        d3vil_caption = f"__**〘 ♕ ᑭσɳց! ♕ 〙__**\n\n   ⚘ {ms}\n   ⚘ __**𝙼𝚢**__ __**𝙼𝚊𝚜𝚝𝚎𝚛**__⟿[{d3vil_mention}](https://te.legra.ph/file/07fd58e7672fa0aa9e515.jpg)"
         await event.client.send_file(
             event.chat_id, PING_PIC, caption=d3vil_caption
         )
         await event.delete()
 
 CmdHelp("ping").add_command(
-  "ping", None, "Checks the ping speed of your 𝔇3𝔳𝔦𝔩𝔅𝔬𝔱"
+  "ping", None, "Checks the ping speed of your DevilBot"
 ).add()
 
 
