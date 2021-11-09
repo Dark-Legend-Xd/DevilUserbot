@@ -182,11 +182,11 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
-                text=f"**[⚜️ ℓєgєи∂αяу αf тєαм ∂єνιℓ ⚜️](https://t.me/devil_us3rb0t)**",
+                text=f"**[⚜️ ℓєgєи∂αяу αf тєαм ∂єνιℓ ⚜️](https://t.me/DEVIL_US3RBOT)**",
                 buttons=[
-                    [Button.url("📑 𝖱𝖾𝗉𝗈 📑", "https://t.me/devilbot_chat")],
-                    [Button.url("🚀 𝖣𝖾𝗉𝗅𝗈𝗒 🚀", "https://t.me/devilbot_chat")],
-                    [Button.url("✵ 𝖮𝗐𝗇𝖾𝗋 ✵", "https://t.me/pro_error_xd")],
+                    [Button.url("📑 𝖱𝖾𝗉𝗈 📑", "https://t.me/DevilB0T_CHAT")],
+                    [Button.url("🚀 𝖣𝖾𝗉𝗅𝗈𝗒 🚀", "https://t.me/DevilB0T_CHAT")],
+                    [Button.url("✵ 𝖮𝗐𝗇𝖾𝗋 ✵", "https://t.me/mr_developer_xd")],
                 ],
             )
 
@@ -205,9 +205,9 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                 text="""**нєу! тнιѕ ιѕ [✘•∂єνιℓвσт•✘](https://t.me/devil_us3rb0t)  \𝗇уσυ ¢αи киσω мσяє αвσυт мє fяσм тнє ℓιикѕ gινєи вєℓσω 👇**""",
                 buttons=[
                     [
-                        custom.Button.url("🔥 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 🔥", "https://t.me/devil_us3rb0t"),
+                        custom.Button.url("🔥 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 🔥", "https://t.me/DEVIL_US3RBOT"),
                         custom.Button.url(
-                            "⚡ 𝙶𝚁𝙾𝚄𝙿 ⚡", "https://t.me/Devilbot_chat"
+                            "⚡ 𝙶𝚁𝙾𝚄𝙿 ⚡", "https://t.me/DevilB0T_CHAT"
                         ),
                     ],
                     [
@@ -215,7 +215,7 @@ if Config.BOT_USERNAME is not None and tgbot is not None:
                             "✨ 𝚁𝙴𝙿𝙾 ✨", "https://github.com/Dark-Legend-Xd/DevilBot"),
                         custom.Button.url
                     (
-                            "🔰 𝙾𝚆𝙽𝙴𝚁 🔰", "https://t.me/pro_error_xd"
+                            "🔰 𝙾𝚆𝙽𝙴𝚁 🔰", "https://t.me/mr_developer_xd"
                     )
                     ],
                 ],
