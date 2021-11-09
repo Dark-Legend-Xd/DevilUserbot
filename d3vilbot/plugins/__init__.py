@@ -49,9 +49,9 @@ if "@" in my_channel:
 if "@" in my_group:
     my_group = my_group.replace("@", "")
 
-chnl_link = "https://t.me/Devil_Us3rB0t"
+chnl_link = "https://t.me/DEVIL_US3RBOT"
 d3vil_channel = f"[∂єνιℓ υѕєявσт]({chnl_link})"
-grp_link = "https://t.me/DevilBot_chat"
+grp_link = "https://t.me/DevilB0T_CHAT"
 d3vil_grp = f"[∂єνιℓвσт ¢нαт]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
