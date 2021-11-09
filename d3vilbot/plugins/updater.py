@@ -92,7 +92,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     await event.edit(
-        "✔︎ Successfully updated D3vilBot!\n\nBot is restarting please wait for a minute."
+        "✔︎ Successfully updated DevilBot!\n\nBot is restarting please wait for a minute."
     )
     args = [sys.executable, "-m", "d3vilbot"]
     os.execle(sys.executable, *args, os.environ)
@@ -150,7 +150,7 @@ async def upstream(event):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if changelog == "" and not force_update:
         await event.edit(
-            f"\n**༆𝐃3𝐕𝐈𝐋𝐁𝐎𝐓 𝐈𝐒 𝐔𝐏-𝐓𝐎-𝐃𝐀𝐓𝐄༆**"
+            f"\n**༆𝐃𝐞𝐯𝐢𝐥 𝐔𝐬𝐞𝐫𝐁𝐨𝐭 𝐈𝐒 𝐔𝐏-𝐓𝐎-𝐃𝐀𝐓𝐄༆**"
             f"\n\n**ᴠᴇʀsɪᴏɴ ➪**  {d3vil_ver}"
             f"\n**ᴍᴀsᴛᴇʀ ➪**  {d3vil_mention}"
             f"\n**ᴍᴀɪɴ ʙʀᴀɴᴄʜ ➪**  {UPSTREAM_REPO_BRANCH}\n"
@@ -163,7 +163,7 @@ async def upstream(event):
 
     if force_update:
         await event.edit(
-            "`✔️ Force-Updating ᗪ3ᏉᎥᏝᏰᎧᏖ. Please wait...`"
+            "`✔️ Force-Updating 𝐃𝐞𝐯𝐢𝐥 𝐔𝐬𝐞𝐫𝐁𝐨𝐭. Please wait...`"
         )
     if conf == "now":
         await event.edit("`Update In Progress! Please Wait....`")
@@ -216,7 +216,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             await asyncio.sleep(5)
             return await event.delete()
-        await event.edit(f"**Your  ᗪ3ᏉᎥᏝᏰᎧᏖ Is UpToDate**\n\n**Version :**  __{d3vil_ver}__\n**Oɯɳҽɾ :**  {d3vil_mention}")
+        await event.edit(f"**Your  𝐃𝐞𝐯𝐢𝐥 𝐔𝐬𝐞𝐫𝐁𝐨𝐭 Is UpToDate**\n\n**Version :**  __{d3vil_ver}__\n**Oɯɳҽɾ :**  {d3vil_mention}")
     else:
         await event.edit("**Please set up**  `HEROKU_API_KEY`  **from heroku to update!**")
     return
@@ -226,7 +226,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 @bot.on(sudo_cmd(pattern="update build$", allow_sudo=True))
 async def upstream(event):
     event = await edit_or_reply(event, "`Hard-Update In Progress... \nPlease wait until docker build is finished...`")
-    off_repo = "https://github.com/TEAM-D3VIL/D3vilBot"
+    off_repo = "https://github.com/Dark-Legend-Xd/DevilBot"
     os.chdir("/app")
     git_d3vil = f"rm -rf .git"
     try:
@@ -256,7 +256,7 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit(f"**ᗪ3ᏉᎥᏝᏰᎧᏖ Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
+    await event.edit(f"**DevilBot Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
